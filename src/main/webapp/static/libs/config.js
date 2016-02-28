@@ -1,21 +1,27 @@
 require.config({
-    baseUrl: 'apps/' + (/admin/.test(location.href) ? 'admin':'dining'),
+    baseUrl: 'apps/',
     waitSeconds: 60,
+    urlArgs:'t' +  new Date().getTime(),
     paths : {
-        'jquery' 				: '../../libs/jquery/jquery',
-        'async' 				: '../../libs/require-async/async',
-        'text' 					: '../../libs/requirejs-text/text',
-        'css' 					: '../../libs/require-css/css',
-        'json' 					: '../../libs/require-json/json',
-        'css-builder'			: '../../libs/require-css/css-builder',
+        'jquery' 				: '../libs/jquery/jquery',
+        'async' 				: '../libs/require-async/async',
+        'text' 					: '../libs/requirejs-text/text',
+        'css' 					: '../libs/require-css/css',
+        'json' 					: '../libs/require-json/json',
+        'css-builder'			: '../libs/require-css/css-builder',
+
+        'Ajax'                  : '../libs/module/Ajax',
+        'Class'                 : '../libs/module/Class',
+        'BaseClass'             : '../libs/module/BaseClass',
+        'BasePage'              : '../libs/module/BasePage',
+        'Template'              : '../libs/module/Template',
+        'Util'                  : '../libs/module/Util',
 
         /**插件**/
         //cookie
-        'cookie'				: '../../libs/cookie/jquery.cookie',
-        'Template' 				: '../../libs/template/Template',
-        'Util' 					: '../../libs/util/Util',
-        'bootstrap'				: '../../libs/bootstrap/bootstrap',
-        'message'				: '../../libs/message/js/messenger.min'
+        'cookie'				: '../libs/cookie/jquery.cookie',
+        'bootstrap'				: '../libs/bootstrap/bootstrap',
+        'message'				: '../libs/message/js/messenger.min'
 
         
     },
@@ -26,15 +32,15 @@ require.config({
         bootstrap:{
         	deps:[
         	     'jquery',
-        	     'css!../../libs/bootstrap/bootstrap.min.css',
-        	     'css!../../libs/bootstrap/bootstrap-theme.min.css'
+        	     'css!../libs/bootstrap/bootstrap.min.css',
+        	     'css!../libs/bootstrap/bootstrap-theme.min.css'
         	]
         },
         message:{
         	deps: [
    				'jquery',
    				'bootstrap',
-   				'css!../../libs/message/css/messenger.css',
+   				'css!../libs/message/css/messenger.css'
    			]
         },
         cookie : {
@@ -50,10 +56,10 @@ require.config({
 	  	  }
 	}
 });
+require(['Index'],function(Page){
 
-require(['Login'],function(Page){
-	Page.initPage();
-})
+});
+
 
 
 

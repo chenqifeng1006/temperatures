@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+
+.login_header{
+    height: 80px;
+    width:1000px;
+    border-bottom: 1px solid #DBE0E3;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.main_header{
+    height: 80px;
+    width:100%;
+    border-bottom: 1px solid #DBE0E3;
+    background: #5B73EA;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+.main_header .title{
+    line-height: 80px;
+    margin-left:100px;
+    color: rgb(102, 102, 102);
+    display: block;
+    font-family: 微软雅黑, 黑体, sans-serif;
+    font-size: 22px;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: auto;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+}
+
+.login_header .title{
+    line-height: 80px;
+    margin-left:100px;
+    color: rgb(102, 102, 102);
+    display: block;
+    font-family: 微软雅黑, 黑体, sans-serif;
+    font-size: 22px;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: auto;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+}
+
+.login_content .page{
+    width:500px;
+}
+.login_content .input_page{
+    box-sizing: border-box;
+    padding-top: 100px;
+    padding-left: 80px;
+}
+
+.findPassword_content{
+    width:1000px;
+    margin:0 auto;
+    padding-top:70px;
+    padding-left:100px;
+    height: 350px;
+}

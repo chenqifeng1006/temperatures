@@ -1,7 +1,7 @@
 define([
     'jquery',
     'Util',
-    'text!../../template/dining/index/mainTpl.html',
+    'text!../../template/dining/index/contentTpl.html',
 ],
 function ($,Util,mainTpl) {
 	
