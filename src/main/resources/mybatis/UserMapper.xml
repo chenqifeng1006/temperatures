@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.admin.dao.UserMapper">
+    
+
+    <select id="getByLoginId"   resultType="com.cc.admin.dto.User">
+    	SELECT 
+    		* 
+    	FROM 
+    		user  
+   		WHERE loginId = #{loginId}
+    </select>
+
+    <insert id="save" parameterType="com.cc.admin.dto.User">
+    	insert into user(loginId,userName,password,address,email) values(#{loginId},#{userName},#{password,},#{address});  
+   		WHERE login_id = #{loginId}
+    </insert>
+    
+    <update id="update" parameterType="User">  
+       update user set userName=#{userName}, address=#{address},email=#{email},password=#{password} where loginId=#{loginId}  
+    </update>  
+</mapper>

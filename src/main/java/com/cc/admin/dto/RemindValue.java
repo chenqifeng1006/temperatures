@@ -6,9 +6,9 @@ public class RemindValue {
 	
 	private int type;
 	
-	private double waringvalue;
+	private double waringValue;
 	
-	private double serioulsvalue;
+	private double serioulsValue;
 
 	public int getId() {
 		return id;
@@ -26,21 +26,21 @@ public class RemindValue {
 		this.type = type;
 	}
 
-	public double getWaringvalue() {
-		return waringvalue;
+	public double getWaringValue() {
+		return waringValue;
 	}
 
-	public void setWaringvalue(double waringvalue) {
-		this.waringvalue = waringvalue;
+	public void setWaringValue(double waringValue) {
+		this.waringValue = waringValue;
 	}
 
-	public double getSerioulsvalue() {
-		return serioulsvalue;
+	public double getSerioulsValue() {
+		return serioulsValue;
 	}
 
-	public void setSerioulsvalue(double serioulsvalue) {
-		this.serioulsvalue = serioulsvalue;
+	public void setSerioulsValue(double serioulsValue) {
+		this.serioulsValue = serioulsValue;
 	}
-	
+
 	
 }
