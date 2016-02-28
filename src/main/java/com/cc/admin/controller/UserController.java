@@ -19,7 +19,7 @@ import com.utils.json.JsonSuccess;
 
 
 @Controller
-@RequestMapping("admin")
+@RequestMapping("user")
 public class UserController extends BaseController {
 	
 

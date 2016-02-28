@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.admin.dao.RemindValue">
+    
+
+    <select id="queryList" parameterType="com.utils.common.JPage" resultMap="com.cc.admin.dto.RemindValue">
+    	SELECT 
+    		*
+        	FROM 
+    		remindvalue 
+    	
+    	LIMIT #{startNum},#{pageCount}
+    </select>
+        <select id="getCount" parameterType="String" resultType="Integer">
+		SELECT
+			COUNT(id)
+		FROM
+			remindvalue
+    </select>
+    
+    
+     <select id="queryById" parameterType="Integer" resultMap="com.cc.admin.dto.RemindValue">
+    	SELECT 
+    		*
+        	FROM 
+    		remindvalue 
+    	
+    	where id=#{id}
+    </select> 
+    
+    
+     <update id="update" parameterType="com.cc.admin.dto.RemindValue">  
+       update remindvalue set warningValue=#{warningValue}, seriousValue=#{seriousValue}  
+       where id=#{id}
+     </update>
+    
+    
+     <insert id="save" parameterType="com.cc.admin.dto.RemindValue">
+    	insert into remindvalue(type,warningValue,seriousValue) values(#{type},#{warningValue},#{seriousValue});  
+    </insert>
+    
+     <delete id="delete" parameterType="Integer">  
+       delete from remindvalue where id=#{id}  
+    </delete>  
+</mapper>
