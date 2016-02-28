@@ -12,11 +12,11 @@
     </select>
 
     <insert id="save" parameterType="com.cc.admin.dto.User">
-    	insert into user(loginId,userName,password,address,email) values(#{loginId},#{userName},#{password,},#{address});  
+    	insert into user(loginId,userName,password,address) values(#{loginId},#{userName},#{password,},#{address});  
    		WHERE login_id = #{loginId}
     </insert>
     
     <update id="update" parameterType="User">  
-       update user set userName=#{userName}, address=#{address},email=#{email},password=#{password} where loginId=#{loginId}  
+       update user set userName=#{userName}, address=#{address},password=#{password} where loginId=#{loginId}  
     </update>  
 </mapper>

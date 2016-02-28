@@ -46,7 +46,7 @@ public class UserService {
 		
 		SimpleMailMessage mail = new SimpleMailMessage();
 		try {
-			mail.setTo(user.getEmail());// 接受者
+			mail.setTo(user.getLoginId());// 接受者
 			mail.setFrom("系统管理员");// 发送者
 			mail.setSubject("您好，请查收您的新密码");// 主题
 			mail.setText("您好，您的新密码为："+random);// 邮件内容

@@ -17,8 +17,6 @@ public class User {
 
     private String address;
     
-    private String email;
-
 	public String getId() {
 		return id;
 	}
@@ -59,13 +57,6 @@ public class User {
 		this.address = address;
 	}
 
-	public String getEmail() {
-		return email;
-	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
 	
 }

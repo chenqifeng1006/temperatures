@@ -68,7 +68,7 @@ public class UserController extends BaseController {
 
 		User existUser=this.userService.getByLoginId(user.getLoginId());
 		if(existUser!=null){
-			throw new Exception("登录名已存在，请重新输入");
+			throw new Exception("邮箱已注册，请重新输入");
 		}
 		try{
 		 
@@ -96,9 +96,7 @@ public class UserController extends BaseController {
 		if(existUser==null){
 			throw new Exception("用户不存在");
 		}
-		if(!user.getEmail().equals(existUser.getEmail())){
-			throw new Exception("登录名和邮箱不匹配");
-		}else{
+        else{
 			this.userService.fogetPassword(existUser);
 		}
 		
