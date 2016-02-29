@@ -41,21 +41,20 @@ public class UserService {
 	
 	public void fogetPassword(User user){
 		user=this.userMapper.getByLoginId(user.getLoginId());
-		//Éú³ÉËæ»úÊı ·¢µ½ÓÊÏä
+		//ç”Ÿæˆéšæœºæ•° å‘é‚®ä»¶åˆ°é‚®ç®±
 		int random=(int)((Math.random()*9+1)*100000);
 		
 		SimpleMailMessage mail = new SimpleMailMessage();
 		try {
-			mail.setTo(user.getLoginId());// ½ÓÊÜÕß
-			mail.setFrom("ÏµÍ³¹ÜÀíÔ±");// ·¢ËÍÕß
-			mail.setSubject("ÄúºÃ£¬Çë²éÊÕÄúµÄĞÂÃÜÂë");// Ö÷Ìâ
-			mail.setText("ÄúºÃ£¬ÄúµÄĞÂÃÜÂëÎª£º"+random);// ÓÊ¼şÄÚÈİ
+			mail.setTo(user.getLoginId());
+			mail.setFrom("chenqifeng@51tiangou.com");
+			mail.setSubject("è¯·æŸ¥æ”¶æœ€æ–°å¯†ç ");
+			mail.setText("æ‚¨çš„æ–°å¯†ç ä¸º"+random);
 			mailSender.send(mail);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		//ĞŞ¸ÄÊı¾İ¿â
 		user.setPassword(String.valueOf(random));
 		this.userMapper.update(user);
 		
