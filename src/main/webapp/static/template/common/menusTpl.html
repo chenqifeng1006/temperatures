@@ -1,0 +1,18 @@
+<div class="left_menus">
+    <%for(var i = 0; i<data.length; i++){%>
+    <div class="menus_block">
+        <span class="menu_head m0 relative">
+            <span class="glyphicon <%=data[i].icon%> left_icon" aria-hidden="true"></span>
+            <%=data[i].name%>
+            <span class="glyphicon glyphicon-menu-left right_icon" aria-hidden="true"></span>
+        </span>
+        <%if(data[i].child && data[i].child.length){%>
+        <div class="menu_body">
+            <%for(var j = 0; data[i].child && j < data[i].child.length; j++){%>
+            <a class="sub_menus" data-js="<%=data[i].child[j].jsPath%>" href="javascript:void(0);"><%=data[i].child[j].name%></a>
+            <%}%>
+        </div>
+        <%}%>
+    </div>
+    <%}%>
+</div>

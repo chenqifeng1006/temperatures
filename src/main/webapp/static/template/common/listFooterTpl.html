@@ -1,0 +1,10 @@
+
+<nav class="in_block">
+    <ul class="pager m0">
+        <li id="prePage"><a href="javascript:void(0);">前一页</a></li>
+        <li id="nextPage"><a href="javascript:void(0);">下一页</a></li>
+    </ul>
+</nav>
+<span class="text">
+    共<%=data.total%>条记录，当前显示第&nbsp;<%=data.startNum + 1%>&nbsp;到第&nbsp;<%=(data.startNum + data.pageCount < data.total)?data.startNum + data.pageCount:data.total%>&nbsp;条记录
+</span>

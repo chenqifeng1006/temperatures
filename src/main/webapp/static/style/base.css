@@ -142,7 +142,7 @@
 }
 
 .absolute {
-    position: absolute;
+    position: absolute!important;
 }
 
 .fixed {
@@ -1416,4 +1416,19 @@
  }
 .ml20{
     margin-left:20px;
+}
+.wp100{
+    width: 100%;
+}
+.hp100{
+    height: 100%;
+}
+.m0{
+    margin:0!important;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
 }

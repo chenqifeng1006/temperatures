@@ -1,0 +1,30 @@
+<table class="table table-bordered relative">
+    <thead>
+        <tr>
+            <%for(var i = 0; i<otherData.colModel.length; i++){%>
+                <th><%=otherData.colModel[i].name%></th>
+            <%}%>
+        </tr>
+    </thead>
+    <tbody>
+    <%for(var i = 0; i<data.length; i++){%>
+        <tr class="listItem" data-id="<%=data[i].id%>">
+            <%for(var j = 0; j<otherData.colModel.length; j++){%>
+            <td>
+                <%if(otherData.colModel[j].fn){%>
+                    <%=otherData.colModel[j].fn(data[i])%>
+                <%}else if(otherData.colModel[j].template){%>
+                    <%=otherData.colModel[j].template%>
+                <%}else{%>
+                    <%=data[i][otherData.colModel[j].index]%>
+                <%}%>
+            </td>
+            <%}%>
+        </tr>
+    <%}%>
+
+    </tbody>
+</table>
+<div id="nav" class="table_nav">
+
+</div>

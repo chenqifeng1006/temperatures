@@ -1,0 +1,30 @@
+{
+  "code": 0,
+  "success": true,
+  "timestamp": 1456725865165,
+  "data":
+    {
+      "id": 2194346,
+      "originalPrice": 380.0,
+      "price": 50.0,
+      "productName": "法尔狮特手绘印花羊毛围巾",
+      "imageUrl": "product/201602/22/97B6DD91-A44E-418A-A801-FD0E106021CC.jpg",
+      "state": "onshelf",
+      "soldQty": 206,
+      "itemHeat": 11120,
+      "startTime": 1453550178000,
+      "type": 2,
+      "promotion": "羊毛围巾、柔软舒适",
+      "source": 1,
+      "imageType": 1,
+      "categoryCode": "0202",
+      "storeId": 179,
+      "discount": 0.14,
+      "storeName": "麦凯乐-大连总店",
+      "counterId": 32456,
+      "cityId": 2554,
+      "brandId": 10697,
+      "brandName": "法尔狮特",
+      "categoryId": 100165
+    }
+}

@@ -1,5 +1,7 @@
 @charset "UTF-8";
-html, body {
+html, body ,.page{
+    background-color: #fff;
+    height: 100%;
     font-family: Helvetica,sans-serif;
     -webkit-text-size-adjust: none; }
 
@@ -59,32 +61,4 @@ a {
     margin: 0 auto 5px; }
 
 
-/*菜单*/
-.menu_head {
-    font-size: 14px;
-    padding: 12px 15px;
-    cursor: pointer;
-    position: relative;
-    margin:1px;
-    font-weight:bold;
-}
-.menu_body {
-    display:none;
-}
-.menu_body a {
-    display:block;
-    color:#006699;
-    background-color:#EFEFEF;
-    padding-left:10px;
-    font-weight:bold;
-    text-decoration:none;
-}
-.menu_body a:hover {
-    color: #000000;
-    text-decoration:underline;
-}
 
-.left_menus{
-    width:200px;
-    background: #5B73EA;
-}

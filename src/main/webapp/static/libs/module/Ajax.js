@@ -20,4 +20,4 @@ define([
     $.tgPost = function(param) {
         $.tgAjax($.extend({type: "POST"}, param));
     };
-})
+});

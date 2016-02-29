@@ -1,11 +1,11 @@
 define([
     'BasePage',
     'Util',
-    'json!../setting/leftMenus.json',
+    'Menus',
     'text!../template/main/headerTpl.html',
     'text!../template/main/contentTpl.html'
 ],
-function (BasePage,Util,leftMenus,headerTpl,contentTpl) {
+function (BasePage,Util,Menus,headerTpl,contentTpl) {
     return BasePage.extend({
         init:function(options){
             var that = this;
@@ -23,15 +23,12 @@ function (BasePage,Util,leftMenus,headerTpl,contentTpl) {
             });
             that.pageContent({
                 parent:$('#content'),
-                data:leftMenus,
-                template:contentTpl
-            });
-
-
-            $("#firstpane p.menu_head").click(function()
-            {
-                $(this).css({backgroundImage:"url(down.png)"}).next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
-                $(this).siblings().css({backgroundImage:"url(left.png)"});
+                template:contentTpl,
+                callback:function(){
+                    Menus.init({
+                        parent:$('#leftContent')
+                    });
+                }
             });
         }
     });

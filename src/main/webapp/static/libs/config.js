@@ -15,12 +15,16 @@ require.config({
         'BaseClass'             : '../libs/module/BaseClass',
         'BasePage'              : '../libs/module/BasePage',
         'Template'              : '../libs/module/Template',
+        'Menus'                 : '../libs/module/Menus',
+        'List'                  : '../libs/module/List',
         'Util'                  : '../libs/module/Util',
 
         /**插件**/
         //cookie
         'cookie'				: '../libs/cookie/jquery.cookie',
-        'bootstrap'				: '../libs/bootstrap/bootstrap',
+        'bootstrap'				: '../libs/bootstrap/js/bootstrap.min',
+        'echarts'               : '../libs/echarts/echarts.min',
+        'datetimepicker'        : '../libs/datetimepicker/js/bootstrap-datetimepicker.min',
         'message'				: '../libs/message/js/messenger.min'
 
         
@@ -32,8 +36,15 @@ require.config({
         bootstrap:{
         	deps:[
         	     'jquery',
-        	     'css!../libs/bootstrap/bootstrap.min.css',
-        	     'css!../libs/bootstrap/bootstrap-theme.min.css'
+        	     'css!../libs/bootstrap/css/bootstrap.min.css',
+        	     'css!../libs/bootstrap/css/bootstrap-theme.min.css'
+        	]
+        },
+        datetimepicker:{
+        	deps:[
+        	     'jquery',
+                'bootstrap',
+        	     'css!../libs/datetimepicker/css/bootstrap-datetimepicker.min.css'
         	]
         },
         message:{

@@ -1,17 +1,10 @@
-<div class="flex">
-    <div class="left_menus"  id="firstpane">
-        <%for(var i = 0; i<data.length; i++){%>
-            <p class="menu_head"><%=data[i].name%></p>
-            <div class="menu_body">
-            <%for(var j = 0; data[i].child && j < data[i].child.length; j++){%>
+<div class="flex hp100">
+    <div class="hp100" id="leftContent">
 
-                    <a href="#"><%=data[i].child[j].name%></a>
-
-            <%}%>
-            </div>
-        <%}%>
     </div>
-    <div class="right_content">
-
+    <div id="rightContent" class="right_content flex1">
+        <div class="welcome">
+            欢迎使用本系统
+        </div>
     </div>
 </div>
