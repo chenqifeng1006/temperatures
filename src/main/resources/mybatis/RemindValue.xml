@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cc.admin.dao.RemindValue">
+<mapper namespace="com.cc.admin.dao.RemindValueMapper">
     
 
     <select id="queryList" parameterType="com.utils.common.JPage" resultMap="com.cc.admin.dto.RemindValue">
@@ -19,7 +19,7 @@
     </select>
     
     
-     <select id="queryById" parameterType="Integer" resultMap="com.cc.admin.dto.RemindValue">
+     <select id="queryById" parameterType="Integer" resultType="com.cc.admin.dto.RemindValue">
     	SELECT 
     		*
         	FROM 
@@ -27,7 +27,14 @@
     	
     	where id=#{id}
     </select> 
-    
+      <select id="queryByType" parameterType="String" resultType="com.cc.admin.dto.RemindValue">
+    	SELECT 
+    		*
+        	FROM 
+    		remindvalue 
+    	
+    	where type=#{type}
+    </select> 
     
      <update id="update" parameterType="com.cc.admin.dto.RemindValue">  
        update remindvalue set warningValue=#{warningValue}, seriousValue=#{seriousValue}  

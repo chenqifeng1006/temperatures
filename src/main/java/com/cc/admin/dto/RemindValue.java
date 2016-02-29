@@ -4,7 +4,7 @@ public class RemindValue {
 
 	private int id;
 	
-	private int type;
+	private String type;
 	
 	private double waringValue;
 	
@@ -18,11 +18,13 @@ public class RemindValue {
 		this.id = id;
 	}
 
-	public int getType() {
+   
+
+	public String getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 

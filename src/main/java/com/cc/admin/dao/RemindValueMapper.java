@@ -13,6 +13,8 @@ public interface RemindValueMapper {
 	
 	public RemindValue queryById(int id);
 	
+	public RemindValue queryByType(String type);
+	
 	void save(RemindValue user);
 
 	

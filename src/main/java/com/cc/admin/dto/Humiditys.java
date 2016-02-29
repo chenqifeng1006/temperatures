@@ -3,7 +3,7 @@ package com.cc.admin.dto;
 public class Humiditys {
 	private int id;
 	
-	private String humidity;
+	private double humidity;
 
 	private String createtime;
 	
@@ -18,11 +18,11 @@ public class Humiditys {
 	}
 
 
-	public String getHumidity() {
+	public double getHumidity() {
 		return humidity;
 	}
 
-	public void setHumidity(String humidity) {
+	public void setHumidity(double humidity) {
 		this.humidity = humidity;
 	}
 

@@ -1,9 +1,9 @@
 package com.cc.admin.dto;
 
-public class Tempertures {
+public class Temperatures {
 	private int id;
 	
-	private String temperture;
+	private double temperture;
 
 	private String createtime;
 	
@@ -17,11 +17,11 @@ public class Tempertures {
 		this.id = id;
 	}
 
-	public String getTemperture() {
+	public double getTemperture() {
 		return temperture;
 	}
 
-	public void setTemperture(String temperture) {
+	public void setTemperture(double temperture) {
 		this.temperture = temperture;
 	}
 

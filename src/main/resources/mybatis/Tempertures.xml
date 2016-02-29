@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.admin.dao.TemperatureMapper">
+    
+    
+    <select id="queryPage" parameterType="com.utils.common.JPage" resultMap="com.cc.admin.dto.Temperatures">
+    	SELECT 
+    		*
+        	FROM 
+    		temperatures
+    		
+    		order by creationtime desc
+    	
+    	LIMIT #{startNum},#{pageCount}
+    </select>
+   
+       <select id="queryList" parameterType="Map" resultMap="com.cc.admin.dto.Temperatures">
+    	SELECT 
+    		*
+        	FROM 
+    		temperatures
+    		where creationtime between(#{starttime},#{endtime})
+    		order by creationtime asc;
+    	
+    </select>
+   
+   
+   <select id="getCount" parameterType="String" resultType="Integer">
+		SELECT
+			COUNT(id)
+		FROM
+			temperatures
+    </select>
+    
+    
+     <select id="queryById" parameterType="Integer" resultType="com.cc.admin.dto.Temperatures">
+    	SELECT 
+    		*
+        	FROM 
+    		Temperatures 
+    	
+    	where id=#{id}
+    </select>  
+    
+    
+     <delete id="delete" parameterType="Integer">  
+       delete from Temperatures where id=#{id}  
+    </delete>  
+</mapper>

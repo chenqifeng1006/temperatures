@@ -27,6 +27,19 @@ public class RemindValueService {
 		return this.remindValueMapper.queryList(page);
 	}
 	
+	public RemindValue queryById(int id){
+		
+		return this.remindValueMapper.queryById(id);
+		
+	}
+	
+	public RemindValue queryByType(String type){
+		
+		return this.remindValueMapper.queryByType(type);
+		
+	}
+	
+	
 	public void save(RemindValue remindValue){
 		
 		this.remindValueMapper.save(remindValue);
