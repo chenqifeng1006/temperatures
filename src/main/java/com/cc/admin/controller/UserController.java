@@ -67,6 +67,7 @@ public class UserController extends BaseController {
 	public JsonObject regist( User user) throws Exception {
 
 		User existUser=this.userService.getByLoginId(user.getLoginId());
+		user.setUserName(user.getLoginId());
 		if(existUser!=null){
 			throw new Exception("邮箱已注册，请重新输入");
 		}
@@ -76,6 +77,7 @@ public class UserController extends BaseController {
 		 
 		  
 		}catch(Exception ex){
+			ex.printStackTrace();
 			throw new Exception("注册失败，请联系系统管理员");
 		}
 		return new JsonData(user);

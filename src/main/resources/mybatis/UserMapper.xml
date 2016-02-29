@@ -13,7 +13,6 @@
 
     <insert id="save" parameterType="com.cc.admin.dto.User">
     	insert into user(loginId,userName,password,address) values(#{loginId},#{userName},#{password,},#{address});  
-   		WHERE login_id = #{loginId}
     </insert>
     
     <update id="update" parameterType="User">  

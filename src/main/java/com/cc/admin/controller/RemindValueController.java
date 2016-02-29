@@ -1,12 +1,16 @@
 package com.cc.admin.controller;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cc.admin.dto.RemindValue;
@@ -14,6 +18,7 @@ import com.cc.admin.dto.User;
 import com.cc.admin.service.RemindValueService;
 import com.cc.admin.service.UserService;
 import com.cc.base.BaseController;
+import com.utils.common.PageDTO;
 import com.utils.json.JsonData;
 import com.utils.json.JsonObject;
 import com.utils.json.JsonSuccess;
@@ -29,6 +34,23 @@ public class RemindValueController extends BaseController {
 	private RemindValueService remindValueService;
 	
 
+	@RequestMapping(value = "/queryPage", method = RequestMethod.GET)
+	public JsonObject queryList(
+			@RequestParam(value = "startNum", defaultValue = "0") int startNum,
+			@RequestParam(value = "pageCount", defaultValue = "10") int pageCount) {
+		
+		List<RemindValue> list = this.remindValueService.queryList(startNum,pageCount);
+		int count = this.remindValueService.count();
+		int currentPage = startNum/pageCount + 1;
+		PageDTO dto = new PageDTO();		
+		dto.setList(list);
+		dto.setCount(count);
+		dto.setStartNum(startNum);
+		dto.setCurrentPage(currentPage);
+		dto.setPageCount(pageCount);
+		
+		return new JsonData(dto);
+	}
 
 
 	
