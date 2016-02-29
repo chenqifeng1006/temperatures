@@ -9,7 +9,7 @@
         	FROM 
     		temperatures
     		
-    		order by creationtime desc
+    		order by createtime desc
     	
     	LIMIT #{startNum},#{pageCount}
     </select>
@@ -19,7 +19,7 @@
     		*
         	FROM 
     		temperatures
-    		where creationtime between(#{starttime},#{endtime})
+    		where createtime between(#{starttime},#{endtime})
     		order by creationtime asc;
     	
     </select>

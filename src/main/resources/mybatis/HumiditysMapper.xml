@@ -9,7 +9,7 @@
         	FROM 
     		Humiditys
     		
-    		order by creationtime desc
+    		order by createtime desc
     	
     	LIMIT #{startNum},#{pageCount}
     </select>
@@ -19,7 +19,7 @@
     		*
         	FROM 
     		Humiditys
-    		where creationtime between(#{starttime},#{endtime})
+    		where createtime between(#{starttime},#{endtime})
     		order by creationtime asc;
     	
     </select>

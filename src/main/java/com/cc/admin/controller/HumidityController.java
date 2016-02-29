@@ -36,18 +36,19 @@ public class HumidityController extends BaseController {
 	public JsonObject queryPage(
 			@RequestParam(value = "startNum", defaultValue = "0") int startNum,
 			@RequestParam(value = "pageCount", defaultValue = "10") int pageCount) {
+	
+			List<Humiditys> list = this.humidityService.queryPage(startNum,pageCount);		
+			int count = this.humidityService.count();
+			int currentPage = startNum/pageCount + 1;
+			PageDTO dto = new PageDTO();		
+			dto.setList(list);
+			dto.setCount(count);
+			dto.setStartNum(startNum);
+			dto.setCurrentPage(currentPage);
+			dto.setPageCount(pageCount);			
+			return new JsonData(dto);
 		
-		List<Humiditys> list = this.humidityService.queryPage(startNum,pageCount);
-		int count = this.humidityService.count();
-		int currentPage = startNum/pageCount + 1;
-		PageDTO dto = new PageDTO();		
-		dto.setList(list);
-		dto.setCount(count);
-		dto.setStartNum(startNum);
-		dto.setCurrentPage(currentPage);
-		dto.setPageCount(pageCount);
 		
-		return new JsonData(dto);
 	}
 	
 	@RequestMapping(value = "/queryChart", method = RequestMethod.GET)
