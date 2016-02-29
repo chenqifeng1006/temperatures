@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cc.admin.dao.TemperatureMapper">
+<mapper namespace="com.cc.admin.dao.HumidityMapper">
     
     
-    <select id="queryPage" parameterType="com.utils.common.JPage" resultMap="com.cc.admin.dto.Temperatures">
+    <select id="queryPage" parameterType="com.utils.common.JPage" resultType="com.cc.admin.dto.Humiditys">
     	SELECT 
     		*
         	FROM 
-    		temperatures
+    		Humiditys
     		
     		order by creationtime desc
     	
     	LIMIT #{startNum},#{pageCount}
     </select>
    
-       <select id="queryList" parameterType="Map" resultMap="com.cc.admin.dto.Temperatures">
+       <select id="queryList" parameterType="Map" resultType="com.cc.admin.dto.Humiditys">
     	SELECT 
     		*
         	FROM 
-    		temperatures
+    		Humiditys
     		where creationtime between(#{starttime},#{endtime})
     		order by creationtime asc;
     	
@@ -29,21 +29,21 @@
 		SELECT
 			COUNT(id)
 		FROM
-			temperatures
+			Humiditys
     </select>
     
     
-     <select id="queryById" parameterType="Integer" resultType="com.cc.admin.dto.Temperatures">
+     <select id="queryById" parameterType="Integer" resultType="com.cc.admin.dto.Humiditys">
     	SELECT 
     		*
         	FROM 
-    		Temperatures 
+    		Humiditys 
     	
     	where id=#{id}
     </select>  
     
     
      <delete id="delete" parameterType="Integer">  
-       delete from Temperatures where id=#{id}  
+       delete from Humiditys where id=#{id}  
     </delete>  
 </mapper>

@@ -3,7 +3,7 @@
 <mapper namespace="com.cc.admin.dao.RemindValueMapper">
     
 
-    <select id="queryList" parameterType="com.utils.common.JPage" resultMap="com.cc.admin.dto.RemindValue">
+    <select id="queryList" parameterType="com.utils.common.JPage" resultType="com.cc.admin.dto.RemindValue">
     	SELECT 
     		*
         	FROM 
