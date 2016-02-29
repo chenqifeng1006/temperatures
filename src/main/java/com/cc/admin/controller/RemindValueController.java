@@ -33,7 +33,7 @@ public class RemindValueController extends BaseController {
 
 	
 	/**
-	 * ĞŞ¸ÄÓÃ»§ĞÅÏ¢ ºÍ  ĞŞ¸ÄÃÜÂë
+	 * ä¿®æ”¹ç”¨æˆ·ä¿¡æ¯ å’Œ  ä¿®æ”¹å¯†ç 
 	 * @param user
 	 * @return
 	 * @throws Exception
@@ -45,7 +45,7 @@ public class RemindValueController extends BaseController {
 		
 			this.remindValueService.update(remindValue);
 		
-		return new JsonSuccess("ĞŞ¸Ä³É¹¦");
+		return new JsonSuccess("ä¿®æ”¹æˆåŠŸ");
 	}
 	
 	@RequestMapping(value = "/update")
@@ -55,9 +55,9 @@ public class RemindValueController extends BaseController {
 		RemindValue existValue=this.remindValueService.queryByType(remindValue.getType());
 		if(existValue!=null){
 			if(existValue.getType().equals("temperture")){
-				throw new Exception("ÎÂ¶ÈµÄ·§ÖµÒÑ¾­´æÔÚ£¬²»ÄÜÖØ¸´ĞÂ½¨");
+				throw new Exception("æ¸©åº¦çš„é˜€å€¼å·²ç»å­˜åœ¨ï¼Œä¸èƒ½é‡å¤æ–°å»º");
 			}else{
-				throw new Exception("Êª¶ÈµÄ·§ÖµÒÑ¾­´æÔÚ£¬²»ÄÜÖØ¸´ĞÂ½¨");
+				throw new Exception("æ¹¿åº¦çš„é˜€å€¼å·²ç»å­˜åœ¨ï¼Œä¸èƒ½é‡å¤æ–°å»º");
 
 			}
 			
@@ -65,7 +65,7 @@ public class RemindValueController extends BaseController {
 		
 		this.remindValueService.save(remindValue);
 		
-		return new JsonSuccess("´´½¨³É¹¦");
+		return new JsonSuccess("åˆ›å»ºæˆåŠŸ");
 	}
 	
 	
@@ -75,6 +75,6 @@ public class RemindValueController extends BaseController {
 		
 		this.remindValueService.delete(remindValue.getId());
 		
-		return new JsonSuccess("É¾³ı³É¹¦");
+		return new JsonSuccess("åˆ é™¤æˆåŠŸ");
 	}
 }

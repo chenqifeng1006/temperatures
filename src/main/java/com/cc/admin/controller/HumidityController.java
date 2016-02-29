@@ -28,6 +28,6 @@ public class HumidityController extends BaseController {
 		
 		this.humidityService.delete(humitidy.getId());
 		
-		return new JsonSuccess("É¾³ı³É¹¦");
+		return new JsonSuccess("åˆ é™¤æˆåŠŸ");
 	}
 }
