@@ -34,6 +34,7 @@ public class HumidityController extends BaseController {
 	
 
 	@RequestMapping(value = "/queryPage", method = RequestMethod.GET)
+	@ResponseBody
 	public JsonObject queryPage(
 			@RequestParam(value = "startNum", defaultValue = "0") int startNum,
 			@RequestParam(value = "pageCount", defaultValue = "10") int pageCount) {
@@ -48,7 +49,6 @@ public class HumidityController extends BaseController {
 			dto.setCurrentPage(currentPage);
 			dto.setPageCount(pageCount);			
 			return new JsonData(dto);
-		
 		
 	}
 	
@@ -77,7 +77,7 @@ public class HumidityController extends BaseController {
 	public JsonSuccess update( Humiditys humiditys) throws Exception {
 
 		
-			this.humidityService.update(humiditys);
+		this.humidityService.update(humiditys);
 		
 		return new JsonSuccess("修改成功");
 	}

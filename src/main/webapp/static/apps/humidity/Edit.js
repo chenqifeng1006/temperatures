@@ -1,0 +1,53 @@
+define([
+    'BasePage',
+    'Util',
+    'text!../../template/humidity/editTpl.html'
+],
+function (BasePage,Util,editTpl) {
+    return BasePage.extend({
+        init:function(options){
+            var that = this;
+            that.parent = options.parent;
+            that.item = options.item;
+            that.id = options.item.id;
+            BasePage.fn.init.call(that, options);
+        },
+        initPage:function(){
+            var that = this;
+            that._loadMainPage();
+        },
+        _loadMainPage:function(){
+            var that = this;
+            that.pageContent({
+                parent:that.parent,
+                data:that.item,
+                template:editTpl,
+                callback:function(){
+                    that._bindEvent();
+                }
+            });
+        },
+        _bindEvent:function(){
+            var that = this;
+            $('#submit').click(function(){
+                var humidity = $('#humidity').val(),
+                    unit = $('#unit').val();
+                if(!humidity || !unit){
+                    that.alert('信息有误，请重新输入')
+                }else{
+                    that.item.humidity = humidity;
+                    that.item.unit = unit;
+                    that.post({
+                        url:'humidity/update',
+                        data:that.item,
+                        success:function(){
+                            require(['humidity/List'],function(Page){
+                                new Page({parent:$('#rightContent')}).initPage();
+                            })
+                        }
+                    })
+                }
+            })
+        }
+    });
+});

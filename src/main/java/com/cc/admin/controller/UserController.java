@@ -121,4 +121,20 @@ public class UserController extends BaseController {
 		
 		return new JsonSuccess("修改成功");
 	}
+	
+	/**
+	 * 通过loginId获得user
+	 * @param user
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/getById")
+	@ResponseBody
+	public JsonObject getById( User user) throws Exception {
+		String loginId = user.getLoginId();
+		User u = this.userService.getByLoginId(loginId);
+		
+		
+		return new JsonData(u);
+	}
 }

@@ -78,6 +78,10 @@
     padding:20px 30px 0 30px;
 }
 
+.right_content .list_top{
+	height: 50px;
+}
+
 .right_content table.table td,.right_content table.table th{
     line-height: 2.428571;
 }
@@ -121,6 +125,12 @@
 .right_content .form input{
     display: inline-block;
     width: 400px;
+}
+.right_content .form select{
+  width: 400px;
+  padding: 7PX;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 

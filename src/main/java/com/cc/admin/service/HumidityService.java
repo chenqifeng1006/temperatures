@@ -56,6 +56,10 @@ public class HumidityService {
 	public void delete(int id){
 	   this.humidityMapper.delete(id);
 	}
+	
+	public Humiditys getLast(){
+	   return this.humidityMapper.getLast();
+	}
 
 	
 	

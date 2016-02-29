@@ -11,71 +11,59 @@
       {
         "name":"chart",
         "jsPath":"demo/chart"
+      },
+      {
+        "name":"PersonalInfo",
+        "jsPath":"login/PersonalInfo"
       }
     ]
   },
   {
-    "name":"营销商品管理",
+    "name":"湿度管理",
     "jsPath":"",
     "icon":"glyphicon-bookmark",
     "child":[
       {
-        "name":"审核中的商品",
-        "jsPath":""
+        "name":"List",
+        "jsPath":"humidity/List"
       },
       {
-        "name":"已上架的商品",
-        "jsPath":""
-      },
-      {
-        "name":"已下架的商品",
-        "jsPath":""
-      },
-      {
-        "name":"全部商品",
-        "jsPath":""
+        "name":"Chart",
+        "jsPath":"humidity/Chart"
       }
     ]
   },
   {
-    "name":"营销商品管理",
+    "name":"温度管理",
     "jsPath":"",
     "icon":"glyphicon-book",
     "child":[
       {
-        "name":"审核中的商品",
-        "jsPath":""
+        "name":"List",
+        "jsPath":"temperature/List"
       },
       {
-        "name":"已上架的商品",
-        "jsPath":""
-      },
-      {
-        "name":"已下架的商品",
-        "jsPath":""
-      },
-      {
-        "name":"全部商品",
-        "jsPath":""
+        "name":"Chart",
+        "jsPath":"temperature/Chart"
       }
     ]
   },
   {
-    "name":"营销商品管理",
+    "name":"告警管理",
     "jsPath":"",
     "icon":"glyphicon-calendar",
     "child":[
       {
-        "name":"审核中的商品",
-        "jsPath":""
+        "name":"List",
+        "jsPath":"remindValue/List"
       },
       {
-        "name":"已上架的商品",
-        "jsPath":""
+        "name":"Edit",
+        "jsPath":"remindValue/Edit"
       },
       {
-        "name":"已下架的商品",
-        "jsPath":""
+        "name":"Add",
+        "jsPath":"remindValue/Add"
       },
       {
         "name":"全部商品",

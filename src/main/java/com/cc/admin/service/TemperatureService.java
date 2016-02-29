@@ -54,6 +54,10 @@ public class TemperatureService {
 	public void delete(int id){
 	   this.temperatureMapper.delete(id);
 	}
+	
+	public Temperatures getLast(){
+		return this.temperatureMapper.getLast();
+	}
 
 	
 	

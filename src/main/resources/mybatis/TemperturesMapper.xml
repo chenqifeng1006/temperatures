@@ -7,18 +7,29 @@
     	SELECT 
     		*
         	FROM 
-    		temperatures
+    		temperture
     		
     		order by createtime desc
     	
     	LIMIT #{startNum},#{pageCount}
+    </select>
+    
+    <select id="getLast" parameterType="com.utils.common.JPage" resultType="com.cc.admin.dto.Temperatures">
+    	SELECT 
+    		*
+        	FROM 
+    		temperture
+    		
+    		order by createtime desc
+    	
+    	LIMIT 0,1
     </select>
    
        <select id="queryList" parameterType="Map" resultType="com.cc.admin.dto.Temperatures">
     	SELECT 
     		*
         	FROM 
-    		temperatures
+    		temperture
     		where createtime between(#{starttime},#{endtime})
     		order by creationtime asc;
     	
@@ -29,7 +40,7 @@
 		SELECT
 			COUNT(id)
 		FROM
-			temperatures
+			temperture
     </select>
     
     
@@ -37,15 +48,15 @@
     	SELECT 
     		*
         	FROM 
-    		Temperatures 
+    		temperture 
     	
     	where id=#{id}
     </select>  
     <update id="update" parameterType="com.cc.admin.dto.Temperatures">  
-       update Temperatures set temperature=#{temperature}, unit=#{unit} where id=#{id}  
+       update temperture set temperture=#{temperture}, unit=#{unit} where id=#{id}  
     </update>  
     
      <delete id="delete" parameterType="Integer">  
-       delete from Temperatures where id=#{id}  
+       delete from temperture where id=#{id}  
     </delete>  
 </mapper>

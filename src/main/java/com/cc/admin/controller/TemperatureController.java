@@ -32,6 +32,7 @@ public class TemperatureController extends BaseController {
 	private TemperatureService temperatureService;
 	
 	@RequestMapping(value = "/queryPage", method = RequestMethod.GET)
+	@ResponseBody
 	public JsonObject queryList(
 			@RequestParam(value = "startNum", defaultValue = "0") int startNum,
 			@RequestParam(value = "pageCount", defaultValue = "10") int pageCount) {
@@ -50,6 +51,7 @@ public class TemperatureController extends BaseController {
 	}
 	
 	@RequestMapping(value = "/queryChart", method = RequestMethod.GET)
+	@ResponseBody
 	public JsonObject queryChart(String startTime,String endTime) {
 		Map<String,String> map=new HashMap<String,String>();
 		
@@ -72,7 +74,7 @@ public class TemperatureController extends BaseController {
 	public JsonSuccess update( Temperatures temperature) throws Exception {
 
 		
-			this.temperatureService.update(temperature);
+		this.temperatureService.update(temperature);
 		
 		return new JsonSuccess("修改成功");
 	}

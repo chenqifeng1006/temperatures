@@ -6,9 +6,13 @@ public class RemindValue {
 	
 	private String type;
 	
-	private double waringValue;
+	private String waringValue;
 	
-	private double serioulsValue;
+	private String serioulsValue;
+	
+	private String warning;
+	
+	private String serious;
 
 	public int getId() {
 		return id;
@@ -28,21 +32,36 @@ public class RemindValue {
 		this.type = type;
 	}
 
-	public double getWaringValue() {
+	public String getWaringValue() {
 		return waringValue;
 	}
 
-	public void setWaringValue(double waringValue) {
+	public void setWaringValue(String waringValue) {
 		this.waringValue = waringValue;
 	}
 
-	public double getSerioulsValue() {
+	public String getSerioulsValue() {
 		return serioulsValue;
 	}
 
-	public void setSerioulsValue(double serioulsValue) {
+	public void setSerioulsValue(String serioulsValue) {
 		this.serioulsValue = serioulsValue;
 	}
 
-	
+	public String getWarning() {
+		return warning;
+	}
+
+	public void setWarning(String warning) {
+		this.warning = warning;
+	}
+
+	public String getSerious() {
+		return serious;
+	}
+
+	public void setSerious(String serious) {
+		this.serious = serious;
+	}
+
 }

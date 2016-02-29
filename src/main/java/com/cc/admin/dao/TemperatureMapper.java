@@ -22,5 +22,7 @@ public interface TemperatureMapper {
 	
 	
 	public void delete(int id);
+	
+	public Temperatures getLast();
 
 }

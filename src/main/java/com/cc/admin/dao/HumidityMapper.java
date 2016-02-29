@@ -20,5 +20,7 @@ public interface HumidityMapper {
 	public void update(Humiditys humiditys);
 	
 	void delete(int id);
+	
+	public Humiditys getLast();
 
 }

@@ -7,11 +7,13 @@ define([
 	'Class',
 	'Util',
 	'Template',
+	'text!../template/util/modalTpl.html',
 	'bootstrap',
 	'message',
-	'Ajax'
+	'Ajax',
+	'cookie'
 ],
-function ($,Class,Util,Template) {
+function ($,Class,Util,Template,modalTpl) {
 
 	"use strict";
 
@@ -27,6 +29,7 @@ function ($,Class,Util,Template) {
 			$._messengerDefaults = {
 				extraClasses: 'messenger-fixed messenger-theme-future messenger-on-bottom messenger-on-right'
 			}
+			$.that = that;
 		},
 		/**
 		 * ajax get 方法
@@ -83,7 +86,7 @@ function ($,Class,Util,Template) {
 		setCookie:function(key,value,expires){
 			var obj = {path:'/'};
 			expires && (obj.expires = expires);
-			this.removeCookie(key);
+			//this.removeCookie(key);
 			return $.cookie(key,value,obj);
 		},
 		getCookie:function(key){
@@ -123,6 +126,44 @@ function ($,Class,Util,Template) {
 		},
 		error:function(message){
 			this.alert(message)
+		},
+		window:function(options){
+			var that = this,
+				okFn;
+			options.title = options.title || '';
+			options.event = options.event || {};
+			okFn = options.okFn || function(){};
+			options.okFn = function(){
+				okFn();
+				$('.modal-backdrop').remove();
+				$('#myModal').remove();
+			}
+			options.event['#saveEvent'] = options.okFn;
+			$('#myModal').remove();
+			this.pageContent({
+				parent:$('body'),
+				type:'append',
+				template:modalTpl,
+				data:options,
+				callback:function(){
+					$('#myModal').modal()
+					$('#windowContent').html(options.content);
+					that.bindEvent(options.event);
+				}
+			})
+		},
+		bindEvent : function(options){
+			var i,$body = $('body'),fn;
+			for(i in options){
+				fn = options[i];
+				$body.off('click',i);
+				$body.on('click',i,(function(fn){
+					return function(e){
+						e.stopPropagation();
+						fn(e,$(this));
+					}
+				})(fn,i))
+			}
 		}
 	});
 });

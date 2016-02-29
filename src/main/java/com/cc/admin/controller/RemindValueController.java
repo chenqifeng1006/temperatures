@@ -3,6 +3,7 @@ package com.cc.admin.controller;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -35,11 +36,15 @@ public class RemindValueController extends BaseController {
 	
 
 	@RequestMapping(value = "/queryPage", method = RequestMethod.GET)
+	@ResponseBody
 	public JsonObject queryList(
 			@RequestParam(value = "startNum", defaultValue = "0") int startNum,
-			@RequestParam(value = "pageCount", defaultValue = "10") int pageCount) {
+			@RequestParam(value = "pageCount", defaultValue = "10") int pageCount,
+			HttpServletRequest request,HttpServletResponse response) {
 		
+		ServletContext context = request.getSession().getServletContext();
 		List<RemindValue> list = this.remindValueService.queryList(startNum,pageCount);
+		context.setAttribute("remindList", list);
 		int count = this.remindValueService.count();
 		int currentPage = startNum/pageCount + 1;
 		PageDTO dto = new PageDTO();		
@@ -50,6 +55,16 @@ public class RemindValueController extends BaseController {
 		dto.setPageCount(pageCount);
 		
 		return new JsonData(dto);
+	}
+	
+	@RequestMapping(value = "/queryById", method = RequestMethod.GET)
+	@ResponseBody
+	public JsonObject queryList(int id) {
+		
+		RemindValue itme = this.remindValueService.queryById(id);
+		
+		
+		return new JsonData(itme);
 	}
 
 
@@ -62,21 +77,21 @@ public class RemindValueController extends BaseController {
 	 */
 	@RequestMapping(value = "/update")
 	@ResponseBody
-	public JsonSuccess update( RemindValue remindValue) throws Exception {
+	public JsonSuccess update( RemindValue remindValue,HttpServletRequest request,HttpServletResponse response) throws Exception {
 
-		
-			this.remindValueService.update(remindValue);
-		
+		ServletContext context = request.getSession().getServletContext();
+		this.remindValueService.update(remindValue);
+		context.removeAttribute("remindList");
 		return new JsonSuccess("修改成功");
 	}
 	
 	@RequestMapping(value = "/save")
 	@ResponseBody
-	public JsonSuccess save( RemindValue remindValue) throws Exception {
+	public JsonSuccess save( RemindValue remindValue,HttpServletRequest request,HttpServletResponse response) throws Exception {
 
 		RemindValue existValue=this.remindValueService.queryByType(remindValue.getType());
 		if(existValue!=null){
-			if(existValue.getType().equals("temperture")){
+			if(existValue.getType().equals("1")){
 				throw new Exception("温度的阀值已经存在，不能重复新建");
 			}else{
 				throw new Exception("湿度的阀值已经存在，不能重复新建");
@@ -84,19 +99,21 @@ public class RemindValueController extends BaseController {
 			}
 			
 		}
-		
+		ServletContext context = request.getSession().getServletContext();
 		this.remindValueService.save(remindValue);
-		
+		context.removeAttribute("remindList");
 		return new JsonSuccess("创建成功");
 	}
 	
 	
 	@RequestMapping(value = "/delete")
 	@ResponseBody
-	public JsonSuccess delete( RemindValue remindValue) throws Exception {
+	public JsonSuccess delete( RemindValue remindValue,HttpServletRequest request,HttpServletResponse response) throws Exception {
 		
 		this.remindValueService.delete(remindValue.getId());
 		
+		ServletContext context = request.getSession().getServletContext();
+		context.removeAttribute("remindList");
 		return new JsonSuccess("删除成功");
 	}
 }

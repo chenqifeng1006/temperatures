@@ -43,12 +43,13 @@ function (BasePage,Util, headerTpl,contentTpl,footerTpl) {
         				password:password
         			},
         			success:function(data){
+                        that.setCookie('loginId',username);
 	        			require(['Main'],function(Page){
 	        			    new Page({}).initPage();
 	        			});
         			}
         		})
-        	})
+        	});
         	$('#findPassword').click(function(){
 				require(['login/FindPassword'],function(Page){
 				    new Page({}).initPage();

@@ -33,7 +33,7 @@ define([
             return this;
         };
         List.prototype.dealNavPage = function(total){
-            this.total = total || 105;
+            this.total = total || 0;
             this.currentPageNum = this.startNum/this.pageCount + 1;
             this.totalPageNum = total%this.pageCount ? Number(String(total/this.pageCount).replace(/^(\d+)\..*/,'$1')) + 1 : total/this.pageCount;
         };
@@ -46,6 +46,7 @@ define([
 
             $.tgAjax({
                 type:that.ajaxType,
+                isList:true,
                 url:that.url,
                 data:data,
                 success:function(data,total){
@@ -98,11 +99,11 @@ define([
             this.load();
         };
         List.prototype.reload = function(data){
-            this.data = data || {};
-            this._initStartNum = data.startNum || 0;
-            this._initPageCount = data.pageCount || 0;
-            this.startNum = data.startNum || 0;
-            this.pageCount = data.pageCount || 10;
+            this.data = data || this.data || {};
+            this._initStartNum = this.data.startNum || this._initStartNum;
+            this._initPageCount = this.data.pageCount ||this._initPageCount;
+            this.startNum = this.data.startNum || this.startNum;
+            this.pageCount = this.data.pageCount || this.pageCount;
             this.load();
         };
         List.prototype.getItemById = function(id){

@@ -37,13 +37,13 @@
     </select> 
     
      <update id="update" parameterType="com.cc.admin.dto.RemindValue">  
-       update remindvalue set warningValue=#{warningValue}, seriousValue=#{seriousValue}  
+       update remindvalue set type=#{type}, warning=#{warning}, serious=#{serious}  
        where id=#{id}
      </update>
     
     
      <insert id="save" parameterType="com.cc.admin.dto.RemindValue">
-    	insert into remindvalue(type,warningValue,seriousValue) values(#{type},#{warningValue},#{seriousValue});  
+    	insert into remindvalue(type,warning,serious) values(#{type},#{warning},#{serious});  
     </insert>
     
      <delete id="delete" parameterType="Integer">  
