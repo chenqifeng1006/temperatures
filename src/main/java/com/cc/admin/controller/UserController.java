@@ -28,7 +28,7 @@ public class UserController extends BaseController {
 	
 
 	/**
-	 * µÇÂ¼
+	 * ç™»å½•
 	 * @param user
 	 * @param request
 	 * @param response
@@ -44,10 +44,10 @@ public class UserController extends BaseController {
 		
 		User loginUser = userService.getByLoginId(loginId);
 		if(loginUser==null){
-			throw new Exception("ÓÃ»§Ãû»òÃÜÂë´íÎó");
+			throw new Exception("ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯");
 		}else{
 			if(!password.equals(loginUser.getPassword())){
-				throw new Exception("ÓÃ»§Ãû»òÃÜÂë´íÎó");
+				throw new Exception("ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯");
 
 			}
 			
@@ -57,7 +57,7 @@ public class UserController extends BaseController {
 	}
 	
 	/**
-	 * ×¢²á 
+	 * æ³¨å†Œ 
 	 * @param user
 	 * @return
 	 * @throws Exception
@@ -68,7 +68,7 @@ public class UserController extends BaseController {
 
 		User existUser=this.userService.getByLoginId(user.getLoginId());
 		if(existUser!=null){
-			throw new Exception("ÓÊÏäÒÑ×¢²á£¬ÇëÖØĞÂÊäÈë");
+			throw new Exception("é‚®ç®±å·²æ³¨å†Œï¼Œè¯·é‡æ–°è¾“å…¥");
 		}
 		try{
 		 
@@ -76,14 +76,14 @@ public class UserController extends BaseController {
 		 
 		  
 		}catch(Exception ex){
-			throw new Exception("×¢²áÊ§°Ü£¬ÇëÁªÏµÏµÍ³¹ÜÀíÔ±");
+			throw new Exception("æ³¨å†Œå¤±è´¥ï¼Œè¯·è”ç³»ç³»ç»Ÿç®¡ç†å‘˜");
 		}
 		return new JsonData(user);
 	}
 	
 	
 	/**
-	 * Íü¼ÇÃÜÂë
+	 * å¿˜è®°å¯†ç 
 	 * @param user
 	 * @return
 	 * @throws Exception
@@ -94,18 +94,18 @@ public class UserController extends BaseController {
 
 		User existUser=this.userService.getByLoginId(user.getLoginId());
 		if(existUser==null){
-			throw new Exception("ÓÃ»§²»´æÔÚ");
+			throw new Exception("ç”¨æˆ·ä¸å­˜åœ¨");
 		}
         else{
 			this.userService.fogetPassword(existUser);
 		}
 		
-		return new JsonSuccess("ÒÑ½«ĞÂÃÜÂë·¢ÖÁÄúµÄÓÊÏä£¬ÇëµÇÂ¼ÓÊÏä²éÊÕ");
+		return new JsonSuccess("å·²å°†æ–°å¯†ç å‘è‡³æ‚¨çš„é‚®ç®±ï¼Œè¯·ç™»å½•é‚®ç®±æŸ¥æ”¶");
 	}
 	
 	
 	/**
-	 * ĞŞ¸ÄÓÃ»§ĞÅÏ¢ ºÍ  ĞŞ¸ÄÃÜÂë
+	 * ä¿®æ”¹ç”¨æˆ·ä¿¡æ¯ å’Œ  ä¿®æ”¹å¯†ç 
 	 * @param user
 	 * @return
 	 * @throws Exception
@@ -117,6 +117,6 @@ public class UserController extends BaseController {
 		
 			this.userService.update(user);
 		
-		return new JsonSuccess("ĞŞ¸Ä³É¹¦");
+		return new JsonSuccess("ä¿®æ”¹æˆåŠŸ");
 	}
 }
