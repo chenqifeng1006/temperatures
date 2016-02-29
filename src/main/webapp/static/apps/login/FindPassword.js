@@ -14,6 +14,7 @@ define([
             initPage:function(){
                 var that = this;
                 that._loadMainPage();
+                that._bindEvent();
             },
             _loadMainPage:function(){
                 var that = this;
@@ -28,6 +29,31 @@ define([
                 that.pageContent({
                     parent:$('#footer'),
                     template:footerTpl
+                })
+            },
+            _bindEvent:function(){
+                var that = this;
+                $('#register').click(function(){
+                    require(['login/Register'],function(Page){
+                        new Page({}).initPage();
+                    });
+                });
+                $('#findPassword').click(function(){
+                    var username = $('#username').val();
+                    that.post({
+                        url:'user/forgetPassword',
+                        data:{
+                            loginId:username
+                        },
+                        success:function(){
+                            that.alert('已将新密码发送至您的邮箱');
+                            setTimeout(function(){
+                                require(['login/Login'],function(Page){
+                                    new Page({}).initPage();
+                                });
+                            },1000)
+                        }
+                    })
                 })
             }
         });

@@ -3,7 +3,7 @@ define([
         'Util',
         'text!../../template/demo/chartTpl.html',
         'echarts',
-        'datetimepicker'
+        'datePicker'
     ],
     function (BasePage,Util,chartTpl,echarts) {
         return BasePage.extend({
@@ -27,7 +27,7 @@ define([
                 });
             },
             _loadDatePage:function(){
-                $('#datetimepicker').datetimepicker();
+
             },
             _loadChart:function(){
                 var myChart = echarts.init(document.getElementById('chart'));

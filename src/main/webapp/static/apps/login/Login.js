@@ -14,6 +14,7 @@ function (BasePage,Util, headerTpl,contentTpl,footerTpl) {
         initPage:function(){
             var that = this;
             that._loadMainPage();
+            that._bindEvent();
         },
         _loadMainPage:function(){
             var that = this;
@@ -29,40 +30,35 @@ function (BasePage,Util, headerTpl,contentTpl,footerTpl) {
                 parent:$('#footer'),
                 template:footerTpl
             })
+        },
+        _bindEvent:function(){
+        	var that = this;
+        	$('#login').click(function(){
+        		var username = $('#username').val(),
+        			password = $('#password').val();
+        		that.post({
+        			url:'user/login',
+        			data:{
+        				loginId:username,
+        				password:password
+        			},
+        			success:function(data){
+	        			require(['Main'],function(Page){
+	        			    new Page({}).initPage();
+	        			});
+        			}
+        		})
+        	})
+        	$('#findPassword').click(function(){
+				require(['login/FindPassword'],function(Page){
+				    new Page({}).initPage();
+				});
+        	})
+        	$('#register').click(function(){
+        		require(['login/Register'],function(Page){
+	        	    new Page({}).initPage();
+	        	});
+        	})
         }
     });
-    //return {
-    //    initPage: function () {
-    //        this._initPage();
-    //        this._bindEvent();
-    //    },
-    //    _initPage: function () {
-    //        Util.pageContent({
-    //            parent: $('body'),
-    //            template: mainTpl
-    //        })
-    //    },
-    //    _bindEvent: function () {
-    //        Util.bindEvent({
-    //            "#logout": $.proxy(this.logout, this),
-    //            "#userEvent": $.proxy(this.userHandler, this),
-    //            "#diningEvent": $.proxy(this.diningHandler, this)
-    //        })
-    //    },
-    //    logout: function () {
-    //        location.reload()
-    //    },
-    //    userHandler: function () {
-    //
-    //        require(['user/List'], function (Page) {
-    //            Page.initPage();
-    //        })
-    //
-    //    },
-    //    diningHandler: function () {
-    //        require(['dining/List'], function (Page) {
-    //            Page.initPage();
-    //        })
-    //    }
-    //}
 });

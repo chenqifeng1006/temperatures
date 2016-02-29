@@ -25,6 +25,7 @@ require.config({
         'bootstrap'				: '../libs/bootstrap/js/bootstrap.min',
         'echarts'               : '../libs/echarts/echarts.min',
         'datetimepicker'        : '../libs/datetimepicker/js/bootstrap-datetimepicker.min',
+        'datePicker'            : '../libs/My97DatePicker/WdatePicker',
         'message'				: '../libs/message/js/messenger.min'
 
         
@@ -45,6 +46,11 @@ require.config({
         	     'jquery',
                 'bootstrap',
         	     'css!../libs/datetimepicker/css/bootstrap-datetimepicker.min.css'
+        	]
+        },
+        datePicker:{
+        	deps:[
+        	    'jquery'
         	]
         },
         message:{

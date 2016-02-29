@@ -8,7 +8,8 @@ define([
 	'Util',
 	'Template',
 	'bootstrap',
-	'message'
+	'message',
+	'Ajax'
 ],
 function ($,Class,Util,Template) {
 
