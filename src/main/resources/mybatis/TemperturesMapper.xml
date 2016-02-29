@@ -41,7 +41,9 @@
     	
     	where id=#{id}
     </select>  
-    
+    <update id="update" parameterType="com.cc.admin.dto.Temperatures">  
+       update Temperatures set temperature=#{temperature}, unit=#{unit} where id=#{id}  
+    </update>  
     
      <delete id="delete" parameterType="Integer">  
        delete from Temperatures where id=#{id}  

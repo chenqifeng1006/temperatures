@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cc.admin.dto.Humiditys;
 import com.cc.admin.dto.RemindValue;
+import com.cc.admin.dto.User;
 import com.cc.admin.service.HumidityService;
 import com.cc.base.BaseController;
 import com.utils.common.PageDTO;
@@ -68,5 +69,16 @@ public class HumidityController extends BaseController {
 		this.humidityService.delete(humitidy.getId());
 		
 		return new JsonSuccess("删除成功");
+	}
+	
+	
+	@RequestMapping(value = "/update")
+	@ResponseBody
+	public JsonSuccess update( Humiditys humiditys) throws Exception {
+
+		
+			this.humidityService.update(humiditys);
+		
+		return new JsonSuccess("修改成功");
 	}
 }

@@ -66,4 +66,14 @@ public class TemperatureController extends BaseController {
 		
 		return new JsonSuccess("删除成功");
 	}
+	
+	@RequestMapping(value = "/update")
+	@ResponseBody
+	public JsonSuccess update( Temperatures temperature) throws Exception {
+
+		
+			this.temperatureService.update(temperature);
+		
+		return new JsonSuccess("修改成功");
+	}
 }

@@ -48,6 +48,10 @@ public class HumidityService {
 		return this.humidityMapper.getCount();
 		
 	}
+	 public void update(Humiditys humiditys){
+		 this.humidityMapper.update(humiditys);
+	 }
+	
 	
 	public void delete(int id){
 	   this.humidityMapper.delete(id);

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cc.admin.dao.TemperatureMapper;
+import com.cc.admin.dto.Humiditys;
 import com.cc.admin.dto.Temperatures;
 import com.utils.common.JPage;
 
@@ -39,6 +40,9 @@ public class TemperatureService {
 		
 	}
 	
+	 public void update(Temperatures temperatures){
+		 this.temperatureMapper.update(temperatures);
+	 }
 	
 
 	public int count(){

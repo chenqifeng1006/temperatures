@@ -3,6 +3,7 @@ package com.cc.admin.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.cc.admin.dto.Humiditys;
 import com.cc.admin.dto.Temperatures;
 import com.utils.common.JPage;
 
@@ -17,7 +18,9 @@ public interface TemperatureMapper {
 	
 	public Temperatures queryById(int id);
 	
+	public void update(Temperatures temperatures);
 	
-	void delete(int id);
+	
+	public void delete(int id);
 
 }
