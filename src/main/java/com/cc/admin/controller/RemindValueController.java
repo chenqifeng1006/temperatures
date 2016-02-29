@@ -48,7 +48,7 @@ public class RemindValueController extends BaseController {
 		return new JsonSuccess("修改成功");
 	}
 	
-	@RequestMapping(value = "/update")
+	@RequestMapping(value = "/save")
 	@ResponseBody
 	public JsonSuccess save( RemindValue remindValue) throws Exception {
 
