@@ -1,5 +1,6 @@
 package com.cc.admin.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +33,7 @@ public class HumidityService {
 		return this.humidityMapper.queryPage(page);
 	}
 	
-	public List<Humiditys> queryList(Map<String, String> map){
+	public List<Humiditys> queryList(Map<String, Date> map){
 		
 		return this.humidityMapper.queryList(map);
 	}

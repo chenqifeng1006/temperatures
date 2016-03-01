@@ -1,5 +1,6 @@
 package com.cc.admin.dao;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ public interface HumidityMapper {
 	public List<Humiditys> queryPage(JPage page);
 
 	
-	public List<Humiditys> queryList(Map<String, String> map);
+	public List<Humiditys> queryList(Map<String, Date> map);
 	
 	public int getCount();
 	

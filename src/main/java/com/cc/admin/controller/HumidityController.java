@@ -1,6 +1,7 @@
 package com.cc.admin.controller;
 
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,8 +54,8 @@ public class HumidityController extends BaseController {
 	}
 	
 	@RequestMapping(value = "/queryChart", method = RequestMethod.GET)
-	public JsonObject queryChart(String startTime,String endTime) {
-		Map<String,String> map=new HashMap<String,String>();
+	public JsonObject queryChart(Date startTime,Date endTime) {
+		Map<String,Date> map=new HashMap<String,Date>();
 		
 		List<Humiditys> list = this.humidityService.queryList(map);
 

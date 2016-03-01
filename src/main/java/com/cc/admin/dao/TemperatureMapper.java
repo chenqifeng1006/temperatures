@@ -1,5 +1,6 @@
 package com.cc.admin.dao;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ public interface TemperatureMapper {
 	public List<Temperatures> queryPage(JPage page);
 
 	
-	public List<Temperatures> queryList(Map<String, String> map);
+	public List<Temperatures> queryList(Map<String, Date> map);
 	
 	public int getCount();
 	

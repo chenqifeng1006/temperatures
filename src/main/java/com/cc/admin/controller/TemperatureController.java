@@ -1,6 +1,7 @@
 package com.cc.admin.controller;
 
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,7 +54,7 @@ public class TemperatureController extends BaseController {
 	@RequestMapping(value = "/queryChart", method = RequestMethod.GET)
 	@ResponseBody
 	public JsonObject queryChart(String startTime,String endTime) {
-		Map<String,String> map=new HashMap<String,String>();
+		Map<String,Date> map=new HashMap<String,Date>();
 		
 		List<Temperatures> list = this.temperatureService.queryList(map);
 

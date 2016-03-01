@@ -1,5 +1,6 @@
 package com.cc.admin.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +30,7 @@ public class TemperatureService {
 		return this.temperatureMapper.queryPage(page);
 	}
 	
-	public List<Temperatures> queryList(Map<String, String> map){
+	public List<Temperatures> queryList(Map<String, Date> map){
 		
 		return this.temperatureMapper.queryList(map);
 	}
