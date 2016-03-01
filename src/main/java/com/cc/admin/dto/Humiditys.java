@@ -1,11 +1,13 @@
 package com.cc.admin.dto;
 
+import java.util.Date;
+
 public class Humiditys {
 	private int id;
 	
 	private double humidity;
 
-	private String createtime;
+	private Date createtime;
 	
 	private String unit;
 
@@ -26,11 +28,11 @@ public class Humiditys {
 		this.humidity = humidity;
 	}
 
-	public String getCreatetime() {
+	public Date getCreatetime() {
 		return createtime;
 	}
 
-	public void setCreatetime(String createtime) {
+	public void setCreatetime(Date createtime) {
 		this.createtime = createtime;
 	}
 

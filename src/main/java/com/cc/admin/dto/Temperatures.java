@@ -1,11 +1,13 @@
 package com.cc.admin.dto;
 
+import java.util.Date;
+
 public class Temperatures {
 	private int id;
 	
 	private double temperture;
 
-	private String createtime;
+	private Date createtime;
 	
 	private String unit;
 
@@ -25,14 +27,14 @@ public class Temperatures {
 		this.temperture = temperture;
 	}
 
-	public String getCreatetime() {
+
+	public Date getCreatetime() {
 		return createtime;
 	}
 
-	public void setCreatetime(String createtime) {
+	public void setCreatetime(Date createtime) {
 		this.createtime = createtime;
 	}
-
 	public String getUnit() {
 		return unit;
 	}
