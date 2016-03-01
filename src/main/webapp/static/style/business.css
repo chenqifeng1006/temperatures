@@ -40,6 +40,18 @@
     line-height: 63px;
 }
 
+.main_header .log a{
+    font-family: 微软雅黑, 黑体, sans-serif;
+    font-size: 14px;
+    padding-right:15px;
+    color:#E5D5D5;
+    cursor: pointer;
+}
+.main_header .log a:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .login_header .title{
     line-height: 80px;
     margin-left:100px;

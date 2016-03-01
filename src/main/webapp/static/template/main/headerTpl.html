@@ -1,6 +1,11 @@
 <div class="main_header">
-    <div class="log">
-        欢迎使用本系统
+    <div class="log flex">
+       	<div class="flex1">欢迎使用本系统</div>
+       	<div class="w300">
+    		<a id="personalInfo" class="edit button"><%=$.cookie('loginId')%></a>
+    		<a id="logout" class="edit button">退出登录</a>
+    	</div>
     </div>
+    
 
 </div>

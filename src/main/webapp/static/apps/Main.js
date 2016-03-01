@@ -15,6 +15,7 @@ function (BasePage,Util,Menus,headerTpl,contentTpl) {
             var that = this;
             that._loadMainPage();
             that._loadEveryTime();
+            that._bindEvent();
         },
         _loadMainPage:function(){
             var that = this;
@@ -31,6 +32,23 @@ function (BasePage,Util,Menus,headerTpl,contentTpl) {
                     });
                 }
             });
+        },
+        _bindEvent:function(){
+        	var that = this;
+        	$('#personalInfo').click(function(){
+        		require(['login/PersonalInfo'],function(Page){
+        			new Page({
+        				parent:$('#rightContent')
+        			}).initPage();
+        			Menus.init({
+                        parent:$('#leftContent')
+                    });
+        		})
+        	})
+        	$('#logout').click(function(){
+        		that.removeCookie('loginId');
+        		location.reload()
+        	})
         },
         _loadEveryTime:function(){
             var that = this;
@@ -50,9 +68,10 @@ function (BasePage,Util,Menus,headerTpl,contentTpl) {
                                 serious1 = Number(obj1.serious) || 0,
                                 serious2 = Number(obj2.serious) || 0,
                                 current1 = data.current1 || 0, //当前温度
-                                current2 = data.current2 || 0;//当前湿度
+                                current2 = data.current2 || 0,//当前湿度
+                                noModal = !$myModal.length || $myModal.is(':hidden')
                             //温度严重报警
-                            if(serious1 && current1 > serious1 && !$myModal.length && that.getCookie('serious1') !== 'true'){
+                            if(serious1 && current1 > serious1 && noModal && that.getCookie('serious1') !== 'true'){
                                 that.setCookie('serious1',true);
                                 that.window({
                                     title:'温度警报',
@@ -63,7 +82,7 @@ function (BasePage,Util,Menus,headerTpl,contentTpl) {
                                 })
                             }
                             //温度警告
-                            else if(warning1 && current1 > warning1 && !$myModal.length && that.getCookie('warning1') !== 'true'){
+                            else if(warning1 && current1 > warning1 && noModal && that.getCookie('warning1') !== 'true'){
                                 that.setCookie('warning1',true);
                                 that.window({
                                     title:'温度警报',
@@ -74,7 +93,7 @@ function (BasePage,Util,Menus,headerTpl,contentTpl) {
                                 })
                             }
                             //湿度严重报警
-                            else if(serious2 && current2 > serious2 && !$myModal.length && that.getCookie('serious2') !== 'true'){
+                            else if(serious2 && current2 > serious2 && noModal && that.getCookie('serious2') !== 'true'){
                                 that.setCookie('serious2',true);
                                 that.window({
                                     title:'湿度警报',
@@ -85,7 +104,7 @@ function (BasePage,Util,Menus,headerTpl,contentTpl) {
                                 })
                             }
                             //湿度警告
-                            else if(warning2 && current2 > warning2 && !$myModal.length && that.getCookie('warning2') !== 'true'){
+                            else if(warning2 && current2 > warning2 && noModal && that.getCookie('warning2') !== 'true'){
                                 that.setCookie('warning2',true);
                                 that.window({
                                     title:'湿度警报',
