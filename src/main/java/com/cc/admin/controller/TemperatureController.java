@@ -1,6 +1,8 @@
 package com.cc.admin.controller;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -53,9 +55,20 @@ public class TemperatureController extends BaseController {
 	
 	@RequestMapping(value = "/queryChart", method = RequestMethod.GET)
 	@ResponseBody
-	public JsonObject queryChart(String startTime,String endTime) {
+	public JsonObject queryChart(Date startTime,Date endTime) {
 		Map<String,Date> map=new HashMap<String,Date>();
-		
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String start=sdf.format(startTime);
+		String end=sdf.format(endTime);
+		try {
+			startTime=sdf.parse(start);
+			endTime=sdf.parse(end);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		map.put("starttime", startTime);
+		map.put("endtime", endTime);
 		List<Temperatures> list = this.temperatureService.queryList(map);
 
 		return new JsonData(list);

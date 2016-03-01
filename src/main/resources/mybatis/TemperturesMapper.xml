@@ -30,8 +30,8 @@
     		*
         	FROM 
     		temperture
-    		where createtime between(#{starttime},#{endtime})
-    		order by creationtime asc;
+    		where createtime between #{starttime} and #{endtime}
+    		order by createtime asc;
     	
     </select>
    
