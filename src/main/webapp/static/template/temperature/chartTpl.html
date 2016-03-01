@@ -1,4 +1,18 @@
-<input id="d11" type="text" onClick="WdatePicker()"/>
+<div class="flex">
+<div class="flex2 pt10">
+	<span>开始时间：</span>
+	<input readonly="readonly" type="text" value="<%=data.startTime%>" id="startTime">
+</div>
+<div class="flex2 pt10">
+	<span>结束时间：</span>
+	<input readonly="readonly" type="text" value="<%=data.endTime%>" id="endTime">
+</div>
+
+<div class="flex1">
+	<button id="search" type="button" class="flex1 btn btn-warning right">查询</button>
+</div>
+</div>
+
 
 <div id="chart" class="chart">
 

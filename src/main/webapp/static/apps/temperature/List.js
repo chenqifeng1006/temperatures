@@ -15,6 +15,7 @@ function (BasePage,Util,List,listTpl) {
             var that = this;
             that._loadMainPage();
             that._loadListPage();
+            that._bindEvent();
         },
         _loadMainPage:function(){
             var that = this;
@@ -23,6 +24,16 @@ function (BasePage,Util,List,listTpl) {
                 template:listTpl
             });
         },
+        _bindEvent:function(){
+        	var that = this;
+        	$('#chart').click(function(){
+        		require(['temperature/Chart'],function(Page){
+        			new Page({
+        				parent:that.parent
+        			}).initPage();
+        		})
+        	})
+        },
         _loadListPage:function(){
             var that = this;
             that.list = new List().init({
@@ -30,7 +41,9 @@ function (BasePage,Util,List,listTpl) {
                 colModel:[
                     {
                         name:'创建时间',
-                        index:'createtime'
+                        fn:function(data){
+                        	return Util.formatDate(new Date(data.createtime),'YYYY-MM-DD 00:00')
+                        }
                     },
                     {
                         name:'温度',

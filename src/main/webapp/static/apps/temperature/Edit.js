@@ -9,6 +9,7 @@ function (BasePage,Util,editTpl) {
             var that = this;
             that.parent = options.parent;
             that.item = options.item;
+            that.item.createtime = Util.formatDate(new Date(that.item.createtime),'YYYY-MM-DD 00:00')
             that.id = options.item.id;
             BasePage.fn.init.call(that, options);
         },
