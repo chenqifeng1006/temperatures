@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.admin.dao.AirMapper">
+    
+    
+    <select id="queryPage" parameterType="com.utils.common.JPage" resultType="com.cc.admin.dto.Airs">
+    	SELECT 
+    		*
+        	FROM 
+    		airs
+    		
+    		order by createtime desc
+    	
+    	LIMIT #{startNum},#{pageCount}
+    </select>
+    <select id="getLast" parameterType="com.utils.common.JPage" resultType="com.cc.admin.dto.Airs">
+    	SELECT 
+    		*
+        	FROM 
+    		airs
+    		
+    		order by createtime desc
+    	
+    	LIMIT 0,1
+    </select>
+   
+       <select id="queryList" parameterType="Map" resultType="com.cc.admin.dto.Airs">
+    	SELECT 
+    		*
+        	FROM 
+    		airs
+    		where createtime between #{starttime} and #{endtime}
+    		order by createtime asc;
+    	
+    </select>
+    
+       
+   
+   
+   <select id="getCount" parameterType="String" resultType="Integer">
+		SELECT
+			COUNT(id)
+		FROM
+			airs
+    </select>
+    
+    
+     <select id="queryById" parameterType="Integer" resultType="com.cc.admin.dto.Airs">
+    	SELECT 
+    		*
+        	FROM 
+    		airs 
+    	
+    	where id=#{id}
+    </select>  
+    <update id="update" parameterType="com.cc.admin.dto.Airs">  
+       update airs set air=#{air}, unit=#{unit} where id=#{id}  
+    </update>  
+    
+     <delete id="delete" parameterType="Integer">  
+       delete from airs where id=#{id}  
+    </delete>  
+</mapper>
