@@ -10,6 +10,11 @@
     "icon":"glyphicon-bookmark"
   },
   {
+    "name":"气体管理",
+    "jsPath":"air/List",
+    "icon":"glyphicon-bookmark"
+  },
+  {
     "name":"告警管理",
     "jsPath":"remindValue/List",
     "icon":"glyphicon-book"

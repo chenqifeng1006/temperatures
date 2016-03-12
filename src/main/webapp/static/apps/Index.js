@@ -1,4 +1,4 @@
-require(['login/Login'],function(Page){
+require(['Main'],function(Page){
     new Page({}).initPage();
 });
 //
