@@ -15,6 +15,7 @@ import com.cc.base.BaseController;
 import com.utils.json.JsonData;
 import com.utils.json.JsonObject;
 import com.utils.json.JsonSuccess;
+import com.utils.token.CookieHandler;
 
 
 
@@ -25,6 +26,9 @@ public class UserController extends BaseController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private CookieHandler cookieHandler;
 	
 
 	/**
@@ -52,6 +56,7 @@ public class UserController extends BaseController {
 			}
 			
 		}		
+		cookieHandler.addCookies(response, "userId", loginUser.getId(), 7);
 		return new JsonData(loginUser);
 
 	}
