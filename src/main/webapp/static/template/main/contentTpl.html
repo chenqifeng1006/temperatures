@@ -1,10 +1,56 @@
-<div class="flex hp100">
-    <div class="hp100" id="leftContent">
+<div class="flex"
+	style="height: 34px; background-image: url('./img/sub_header.png');">
+	<div
+		style="font-size: 12px; width: 220px; text-align: center; line-height: 33px; border-right: 1px solid #3186AA;">
+		<span>今天是<%=data.time%></span>
+	</div>
+	<div class="flex1"
+		style="font-size: 12px; text-align: center; line-height: 33px; border-right: 1px solid #3186AA;">
+		<a class="subLink" id="indexEvent">首页</a>
+	</div>
+	<div class="flex1"
+		style="font-size: 12px; text-align: center; line-height: 33px; border-right: 1px solid #3186AA;">
+		<a class="subLink" data-js="temperature/List">温度管理</a>
+	</div>
+	<div class="flex1"
+		style="font-size: 12px; text-align: center; line-height: 33px; border-right: 1px solid #3186AA;">
+		<a class="subLink" data-js="humidity/List">湿度管理</a>
+	</div>
+	<div class="flex1"
+		style="font-size: 12px; text-align: center; line-height: 33px; border-right: 1px solid #3186AA;">
+		<a class="subLink" data-js="air/List">气体管理</a>
+	</div>
+	<div class="flex1"
+		style="font-size: 12px; text-align: center; line-height: 33px; border-right: 1px solid #3186AA;">
+		<a class="subLink" data-js="remindValue/List">告警管理</a>
+	</div>
+	<div class="flex1"
+		style="font-size: 12px; text-align: center; line-height: 33px;">
+		<a class="subLink" data-js="jingSe/Index">景观欣赏</a>
+	</div>
+</div>
 
-    </div>
-    <div id="rightContent" class="right_content flex1">
-        <div class="welcome">
-         	欢迎使用本系统
-        </div>
-    </div>
+<div class="flex hp100">
+	<div id="leftPage" style="width: 220px; text-align: center;">
+		<img src="./img/log.png" width="200px"
+			style="margin: 20px 10px 20px 10px;">
+		<p>东软705版权所有，保留所有权利</p>
+		<p>辽宁省大连市甘井子区</p>
+		<p>大连东软信息学院三期宿舍</p>
+		<p>E-mail：954473235@qq.com</p>
+		<p>qq:954473235</p>
+	</div>
+	<div id="rightContent" class="right_content flex1">
+		<div class="welcome" style="border:0">
+			<div class="list-group" style="text-align: left">
+				<a href="javascript:void(0);" class="list-group-item active" style="background: #D3E7F1; color: #DA5252;text-shadow: 0 -1px 0 #D3E7C9;"><b>站内快讯</b> </a> 
+				<a href="javascript:void(0);" class="notice_item list-group-item">习近平创建首个创新战略伙伴关系</a> 
+				<a href="javascript:void(0);" class="notice_item list-group-item">中国如何让创新成为经济增长的引擎</a> 
+				<a href="javascript:void(0);" class="notice_item list-group-item">《资本论》的真谛及对其曲解</a> 
+				<a href="javascript:void(0);" class="notice_item list-group-item">美学怎样才能既是理论的学科，又具有实践性</a> 
+				<a href="javascript:void(0);" class="notice_item list-group-item">国际刑事司法合作：研究与文献</a> 
+				<a href="javascript:void(0);" class="notice_item list-group-item">襄汾县国税局推进学习型党组织建设</a> 
+			</div>
+		</div>
+	</div>
 </div>

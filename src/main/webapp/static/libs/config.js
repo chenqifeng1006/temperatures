@@ -23,6 +23,7 @@ require.config({
         //cookie
         'cookie'				: '../libs/cookie/jquery.cookie',
         'bootstrap'				: '../libs/bootstrap/js/bootstrap.min',
+        'bxslider'				: '../libs/bxslider/jquery.bxslider.min',
         'echarts'               : '../libs/echarts/echarts.min',
         'datetimepicker'        : '../libs/datetimepicker/js/bootstrap-datetimepicker.min',
         'datePicker'            : '../libs/My97DatePicker/WdatePicker',
@@ -52,6 +53,12 @@ require.config({
         	deps:[
         	    'jquery'
         	]
+        },
+        bxslider:{
+        	deps:[
+        	      'jquery',
+        	      'css!../libs/bxslider/jquery.bxslider.css'
+    	      ]
         },
         message:{
         	deps: [

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.admin.dao.MessageMapper">
+    
+    
+    <select id="queryPage" parameterType="java.lang.Integer" resultType="com.cc.admin.dto.Message">
+    	SELECT 
+    		message.*,user.userName
+       	FROM 
+    		message
+   		LEFT JOIN
+   			user
+		ON
+			user.id = message.userId
+   		WHERE
+   			noticeId=#{noticeId}
+   		ORDER BY 
+   			time desc
+    </select>
+	
+	<insert id="add" parameterType="com.cc.admin.dto.Message" useGeneratedKeys="true">
+        INSERT INTO 
+        	message 
+        	(userId,time,noticeId,content)
+        VALUES 
+        	(#{userId},#{time},#{noticeId},#{content})
+    </insert>
+	
+	 
+</mapper>

@@ -52,7 +52,7 @@ public class UserController extends BaseController {
 			}
 			
 		}		
-		return new JsonData(user);
+		return new JsonData(loginUser);
 
 	}
 	

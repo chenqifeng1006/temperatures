@@ -11,6 +11,8 @@
     height: 100%;
     box-sizing: border-box;
     padding-top: 80px;
+    padding-bottom:30px;
+    overflow: hidden;
 }
 
 .login_header{
@@ -26,17 +28,16 @@
     height: 80px;
     width:100%;
     border-bottom: 1px solid #DBE0E3;
-    background-color: #00A2C9;
     margin: 0 auto;
     color: #f0f0f0;
     position: relative;
     overflow: hidden;
+    z-index:999;
 }
 .main_header .log{
     font-family: 微软雅黑, 黑体, sans-serif;
     font-size: 20px;
     padding: 6px 0 6px 70px;
-    border-bottom: 4px solid #ffa800;
     line-height: 63px;
 }
 
@@ -87,7 +88,8 @@
 }
 
 .right_content{
-    padding:20px 30px 0 30px;
+    padding:20px 30px 32px 30px;
+    overflow:auto;
 }
 
 .right_content .list_top{
@@ -97,12 +99,10 @@
 .right_content table.table td,.right_content table.table th{
     line-height: 2.428571;
 }
-.right_content table.table tr:hover{
-    background-color: #f5f5f5;
-}
+
 .right_content .table_nav .text{
     position: absolute;
-    right: 30px;
+    right: 50px;
     display: inline-block;
     line-height: 25px;
 }
@@ -121,7 +121,6 @@
     margin: 50px auto;
     width: 80%;
     border: solid 6px #F0F0F0;
-    padding: 40px;
 }
 
 .right_content .form{
@@ -217,3 +216,42 @@
     color: #00A2C9;
 }
 
+.subLink:hover{
+	color:#105371;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.footer{
+	height:30px;position: fixed;bottom: 0;width: 100%;z-index: 9999;left: 0;
+	background-image:url('../img/footer_bak.png');
+	text-align: center;
+	font-size:12px;
+	color:#000;
+	line-height:30px;
+}
+
+#demoList{
+	background:#DBE9F5;
+}
+
+table.table-bordered.relative{
+	margin-bottom:0;
+}
+
+#nav{
+	padding:8px;
+}
+
+.notice .img_wrapper{
+	text-align: center;
+}
+
+.messageList .item{
+    position: relative;
+    background-color: #fbfbfb;
+    overflow: hidden;
+    border-radius: 5px;
+    border: solid 1px #F3DDB3;
+    height: 120px;
+}

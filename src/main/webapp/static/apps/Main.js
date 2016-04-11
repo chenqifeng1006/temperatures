@@ -3,9 +3,10 @@ define([
     'Util',
     'Menus',
     'text!../template/main/headerTpl.html',
-    'text!../template/main/contentTpl.html'
+    'text!../template/main/contentTpl.html',
+    'text!../template/main/footerTpl.html'
 ],
-function (BasePage,Util,Menus,headerTpl,contentTpl) {
+function (BasePage,Util,Menus,headerTpl,contentTpl,footerTpl) {
     return BasePage.extend({
         init:function(options){
             var that = this;
@@ -26,10 +27,44 @@ function (BasePage,Util,Menus,headerTpl,contentTpl) {
             that.pageContent({
                 parent:$('#content'),
                 template:contentTpl,
+                data:{
+                	time:Util.formatDate(new Date(),'YYYY-MM-DD 星期')
+                },
                 callback:function(){
-                    Menus.init({
-                        parent:$('#leftContent')
-                    });
+//                    Menus.init({
+//                        parent:$('#leftContent')
+//                    });
+                	
+                	$('.subLink').click(function(){
+                		var jsPath = $(this).data('js');	
+                		if(jsPath){
+                			require([jsPath],function(Page){
+                                new Page({parent:$('#rightContent')}).initPage();
+                            })
+                		}
+                	})
+                	
+                	$('#indexEvent').click(function(){
+                		require(['Main'],function(Page){
+	                	    new Page({}).initPage();
+	                	});
+                	})
+                	
+                	$('.notice_item').click(function(){
+                		var index = $(this).index();
+                		require(['notice/Index'],function(Page){
+	                	    new Page({parent:$('#rightContent'),id:index}).initPage();
+	                	});
+                	})
+                	
+                }
+            });
+            that.pageContent({
+                parent:$('#footer'),
+                template:footerTpl,
+                callback:function(){
+                	$('#footer').addClass('footer');
+                	
                 }
             });
         },
